@@ -10,16 +10,21 @@ body {
 }
 
 #playArea {
-	height: 90%;
+	height: 99%;
 	width: 100%;
-	background-color: lightyellow;
+	/*background-color: lightyellow;*/
+	background-image: url(images/pokemon-background.png);
+	background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover; /* Resize the background image to cover the entire container */
+
 
 }
 
 .catchArea {
-	height: 10%;
+	height: 1%;
 	width: 100%;
-	background-color: lightyellow;
+	background-color: #89AB77;
 }
 
 

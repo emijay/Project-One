@@ -24,8 +24,13 @@
 
 let fruit = "🍍";
 let fruitNum = 0;
-let curPositionFromTop;
 let fruitBasket = 0;
+let currentScore = 0;
+
+let pokemon2 = "https://www.smogon.com/forums/proxy.php?image=http%3A%2F%2Fwww.pkparaiso.com%2Fimagenes%2Fxy%2Fsprites%2Fanimados%2Fplusle.gif&hash=770c575f28a30952ce3168e8336d76fc";
+let totodile = "https://www.smogon.com/forums/proxy.php?image=http%3A%2F%2Fwww.pkparaiso.com%2Fimagenes%2Fxy%2Fsprites%2Fanimados%2Ftotodile.gif&hash=d6f735bfa8b0f2bdc133a1c1450faa3a";
+
+
 
 //-------- Functions --------//
 
@@ -64,7 +69,7 @@ const makeFruit = () => {
 
 }
 
-
+// To check when to remove the missed fruits from playing area
 const removeFruit = () => {
 
     let fruitsInPlay2 = document.querySelector("#playArea").children;
@@ -77,9 +82,37 @@ const removeFruit = () => {
         let curPosition2 = document.querySelector("#" + fruitChosen2).style.top
         let curPositionNum2 = parseInt(curPosition2.replace(/[^0-9]/g, ''))
 
-        if (curPositionNum2 > 850) {
+        if (curPositionNum2 > 830) {
             let elem = document.querySelector("#" + fruitChosen2);
             elem.remove();
+        }
+    }
+
+}
+
+// To check when to remove the missed fruits from playing area
+const checkScore = () => {
+
+    let fruitsInPlay3 = document.querySelector("#playArea").children;
+
+    // console.log('Scoring the board')
+
+    for (i = 0; i < fruitsInPlay3.length; i ++) {
+
+        let fruitChosen3 = fruitsInPlay3[i].id;
+
+        let curPosTopFruit = document.querySelector("#" + fruitChosen3).style.top;
+        let curPosTopFruitNum = parseInt(curPosTopFruit.replace(/[^0-9]/g, ''));
+
+        let curPosLeftFruit = document.querySelector("#" + fruitChosen3).style.left;
+
+        let curPosLeftCatcher = document.querySelector("#catcher").style.left;
+
+        if (curPosLeftFruit === curPosLeftCatcher && (curPosTopFruitNum > 700 && curPosTopFruitNum < 730)) {
+            let elem = document.querySelector("#" + fruitChosen3);
+            elem.remove();
+
+            currentScore ++;
         }
     }
 
@@ -94,7 +127,7 @@ const makePokemon = () => {
     newPokemon.style.left = "800px";
     newPokemon.style.bottom = "50px";
     newPokemon.style.width = "100px";
-    newPokemon.src = "https://www.smogon.com/forums/proxy.php?image=http%3A%2F%2Fwww.pkparaiso.com%2Fimagenes%2Fxy%2Fsprites%2Fanimados%2Ftotodile.gif&hash=d6f735bfa8b0f2bdc133a1c1450faa3a";
+    newPokemon.src = totodile;
     document.querySelector(".catchArea").append(newPokemon);
 }
 
@@ -105,7 +138,9 @@ const stopTheGame = () => {
     clearInterval(dropThemFruits);
     clearInterval(checkThemFruits);
     clearInterval(makeThemFruits);
+    clearInterval(checkTheScore);
 }
+
 // When you press the left and right keys to move the catcher
 
 document.onkeydown = function(event) {
@@ -146,17 +181,19 @@ document.onkeydown = function(event) {
 
     makePokemon();
 
-    dropThemFruits = setInterval(fruitDrop,1);
+    dropThemFruits = setInterval(fruitDrop,5);
 
     checkThemFruits = setInterval(removeFruit,200)
 
-    makeThemFruits = setInterval(makeFruit,2000);
+    checkTheScore = setInterval(checkScore,200)
+
+    makeThemFruits = setInterval(makeFruit,5000);
 
 
 
 //-------- AddEventListeners --------//
-// let
-// pokeball.AddEventListener('')
+//
+//
 //
 //
 //
