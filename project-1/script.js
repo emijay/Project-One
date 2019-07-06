@@ -26,7 +26,6 @@ let fruit = "🍍";
 let fruitNum = 0;
 let curPositionFromTop;
 let fruitBasket = 0;
-let intervalOfDrops;
 
 //-------- Functions --------//
 
@@ -55,7 +54,7 @@ const makeFruit = () => {
     let newFruit = document.createElement('p');
 
     newFruit.setAttribute('id', `fruit${fruitNum + 1}`);
-    newFruit.textContent = "🍍";
+    newFruit.textContent = fruit;
     newFruit.style.position = "absolute";
     newFruit.style.left = `${positionFromLeft}px`;
     newFruit.style.top = `0px`;
@@ -65,15 +64,6 @@ const makeFruit = () => {
 
 }
 
-const startGame = () => {
-    makeFruit();
-}
-
-const stopTheGame = () => {
-    clearInterval(dropThemFruits);
-    clearInterval(checkThemFruits);
-    clearInterval(makeThemFruits);
-}
 
 const removeFruit = () => {
 
@@ -95,42 +85,78 @@ const removeFruit = () => {
 
 }
 
-// //
+const makePokemon = () => {
 
-// document.onkeydown = checkKey;
+    let newPokemon = document.createElement('img');
 
-// function checkKey(e) {
+    newPokemon.setAttribute('id', "catcher");
+    newPokemon.style.position = "absolute";
+    newPokemon.style.left = "800px";
+    newPokemon.style.bottom = "50px";
+    newPokemon.style.width = "100px";
+    newPokemon.src = "https://www.smogon.com/forums/proxy.php?image=http%3A%2F%2Fwww.pkparaiso.com%2Fimagenes%2Fxy%2Fsprites%2Fanimados%2Ftotodile.gif&hash=d6f735bfa8b0f2bdc133a1c1450faa3a";
+    document.querySelector(".catchArea").append(newPokemon);
+}
 
-//     e = e || window.event;
-
-//     if (e.keyCode == '38') {
-//         // up arrow
-//     }
-//     else if (e.keyCode == '40') {
-//         // down arrow
-//     }
-//     else if (e.keyCode == '37') {
-//        // left arrow
-//     }
-//     else if (e.keyCode == '39') {
-//        // right arrow
-//     }
-
+// const startGame = () => {
 // }
+
+const stopTheGame = () => {
+    clearInterval(dropThemFruits);
+    clearInterval(checkThemFruits);
+    clearInterval(makeThemFruits);
+}
+// When you press the left and right keys to move the catcher
+
+document.onkeydown = function(event) {
+
+    let pokeball = document.querySelector("#catcher");
+    let curPosLeft;
+    let curPosLeftNum;
+    let newPostLeft;
+
+    switch (event.keyCode) {
+
+        case 37:
+        // When you press on the left arrow button
+        curPosLeft = pokeball.style.left;
+
+        curPosLeftNum = parseInt(curPosLeft.replace(/[^0-9]/g, ''));
+        newPosLeft = curPosLeftNum - 100 + "px";
+
+        document.querySelector("#catcher").style.left = newPosLeft;
+        break;
+
+        case 39:
+        // When you press on the right arrow button
+        // alert('you pressed right')
+
+        curPosLeft = pokeball.style.left;
+        curPosLeftNum = parseInt(curPosLeft.replace(/[^0-9]/g, ''));
+
+        newPosLeft = curPosLeftNum + 100 + "px";
+
+        document.querySelector("#catcher").style.left = newPosLeft;
+        break;
+    }
+};
 
 
 //-------- SetIntervals --------//
 
-dropThemFruits = setInterval(fruitDrop,5);
+    makePokemon();
 
-checkThemFruits = setInterval(removeFruit,200)
+    dropThemFruits = setInterval(fruitDrop,1);
 
-makeThemFruits = setInterval(makeFruit,3000);
+    checkThemFruits = setInterval(removeFruit,200)
+
+    makeThemFruits = setInterval(makeFruit,2000);
+
 
 
 //-------- AddEventListeners --------//
-let pokeball = document.querySelector("#catcher");
-pokeball.AddEventListener('')
+// let
+// pokeball.AddEventListener('')
 //
 //
 //

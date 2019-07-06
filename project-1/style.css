@@ -22,33 +22,9 @@ body {
 	background-color: lightyellow;
 }
 
-#catcher {
-	display: inline-block;
-	width: 100px;
-	background-color: lightyellow;
-	position: absolute;
-	bottom: 30px;
-	left: 750px	;
-}
 
-
-#catcher img{
-	max-width: 100px;
-}
 p {
-	font-size: 100px;
+	font-size: 80px;
 	margin: 0;
 	padding: 0;
-}
-
-#fruitTest {
-	position: absolute;
-	top: 870px;
-	left: 500px;
-}
-
-.fruit {
-	position: absolute;
-	left: 10%;
-	top: 0;
 }
