@@ -21,10 +21,9 @@
 
 //-------- Global Variables --------//
 
-let fruit = "🍍";
 let fruitNum = 0;
-let fruitBasket = 0;
 let currentScore = 0;
+let timeleft = 60;
 
 let pokemon2 = "https://www.smogon.com/forums/proxy.php?image=http%3A%2F%2Fwww.pkparaiso.com%2Fimagenes%2Fxy%2Fsprites%2Fanimados%2Fplusle.gif&hash=770c575f28a30952ce3168e8336d76fc";
 let totodile = "https://www.smogon.com/forums/proxy.php?image=http%3A%2F%2Fwww.pkparaiso.com%2Fimagenes%2Fxy%2Fsprites%2Fanimados%2Ftotodile.gif&hash=d6f735bfa8b0f2bdc133a1c1450faa3a";
@@ -53,9 +52,12 @@ const fruitDrop = () => {
 // To create the fruit and randomize their starting position from the left at the top
 const makeFruit = () => {
 
-    let randomNum0to5 = Math.floor(Math.random() * 6);
-    let startPosition = [300,500,700,900,1100,1300,1500];
+    let randomNum0to5 = Math.floor(Math.random() * 6); // for the start position array
+    let randNum0to5 = Math.floor(Math.random() * 6); // for the fruit array
+    let startPosition = [300,500,700,900,1100,1300];
+    let fruitArray = ["🍍","🍒","🍌","🍓","🍎","💣"];
     let positionFromLeft = startPosition[randomNum0to5];
+    let fruit = fruitArray[randNum0to5];
 
     let newFruit = document.createElement('p');
 
@@ -109,15 +111,28 @@ const checkScore = () => {
 
         let curPosLeftCatcher = document.querySelector("#catcher").style.left;
 
-        if (curPosLeftFruit === curPosLeftCatcher && (curPosTopFruitNum > 700 && curPosTopFruitNum < 730)) {
+        let fruitChosen3Text = document.querySelector("#" + fruitChosen3).textContent;
+
+        if (curPosLeftFruit === curPosLeftCatcher && (curPosTopFruitNum > 700 && curPosTopFruitNum < 730) && fruitChosen3Text !== "💣" ) {
+
             let elem = document.querySelector("#" + fruitChosen3);
             elem.remove();
 
             currentScore ++;
 
             document.querySelector("#score").textContent = currentScore;
-
         }
+
+        else if (curPosLeftFruit === curPosLeftCatcher && (curPosTopFruitNum > 700 && curPosTopFruitNum < 730) && fruitChosen3Text === "💣" ) {
+
+            let elem = document.querySelector("#" + fruitChosen3);
+            elem.remove();
+
+            currentScore --;
+
+            document.querySelector("#score").textContent = currentScore;
+        }
+
     }
 
 }
@@ -136,6 +151,19 @@ const makePokemon = () => {
     document.querySelector(".catchArea").append(newPokemon);
 }
 
+const countdown = () => {
+
+    timeleft-- ;
+
+    document.querySelector("#time-left").textContent = timeleft;
+
+    if (timeleft === 0) {
+        stopTheGame();
+        alert('Countdown over!')
+    }
+}
+
+
 
 // const startGame = () => {
 // }
@@ -145,6 +173,7 @@ const stopTheGame = () => {
     clearInterval(checkThemFruits);
     clearInterval(makeThemFruits);
     clearInterval(checkTheScore);
+    clearInterval(timer);
 }
 
 // When you press the left and right keys to move the catcher
@@ -190,7 +219,11 @@ document.onkeydown = function(event) {
 
     checkTheScore = setInterval(checkScore,200)
 
-    makeThemFruits = setInterval(makeFruit,5000);
+    makeThemFruits = setInterval(makeFruit,1000);
+
+    timer = setInterval(countdown, 1000);
+
+    setTimeout(stopTheGame,60000);
 
 
 

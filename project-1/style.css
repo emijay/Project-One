@@ -7,10 +7,18 @@ body {
 h1 {
 	font-family: 'Press Start 2P', cursive;
 	color: white;
+}
+
+#leftInfo {
 	position: absolute;
   left: 4%;
-  top: 2%;
+  top: 5%;
+}
 
+#rightInfo {
+	position: absolute;
+  right: 4%;
+  top: 5%;
 }
 
 .wrapper {
