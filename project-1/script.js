@@ -14,7 +14,6 @@
 // How can you make the game better?
 
     // Different pokemons dropping
-    // Smoothen the dropping animation
     //
 
 // How can you improve the code? KISS and DRY
@@ -34,6 +33,7 @@ let totodile = "https://www.smogon.com/forums/proxy.php?image=http%3A%2F%2Fwww.p
 
 //-------- Functions --------//
 
+// To make the fruit drop by adding to their position from the top
 const fruitDrop = () => {
 
     let fruitsInPlay = document.querySelector("#playArea").children;
@@ -50,6 +50,7 @@ const fruitDrop = () => {
     }
 }
 
+// To create the fruit and randomize their starting position from the left at the top
 const makeFruit = () => {
 
     let randomNum0to5 = Math.floor(Math.random() * 6);
@@ -90,7 +91,7 @@ const removeFruit = () => {
 
 }
 
-// To check when to remove the missed fruits from playing area
+// To check when to add to player's current score
 const checkScore = () => {
 
     let fruitsInPlay3 = document.querySelector("#playArea").children;
@@ -113,11 +114,15 @@ const checkScore = () => {
             elem.remove();
 
             currentScore ++;
+
+            document.querySelector("#score").textContent = currentScore;
+
         }
     }
 
 }
 
+// To make the catcher at the bottom
 const makePokemon = () => {
 
     let newPokemon = document.createElement('img');
@@ -131,6 +136,7 @@ const makePokemon = () => {
     document.querySelector(".catchArea").append(newPokemon);
 }
 
+
 // const startGame = () => {
 // }
 
@@ -142,7 +148,6 @@ const stopTheGame = () => {
 }
 
 // When you press the left and right keys to move the catcher
-
 document.onkeydown = function(event) {
 
     let pokeball = document.querySelector("#catcher");
@@ -164,8 +169,6 @@ document.onkeydown = function(event) {
 
         case 39:
         // When you press on the right arrow button
-        // alert('you pressed right')
-
         curPosLeft = pokeball.style.left;
         curPosLeftNum = parseInt(curPosLeft.replace(/[^0-9]/g, ''));
 
