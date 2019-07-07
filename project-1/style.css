@@ -4,6 +4,15 @@ body {
 	padding: 0;
 }
 
+h1 {
+	font-family: 'Press Start 2P', cursive;
+	color: white;
+	position: absolute;
+  left: 4%;
+  top: 2%;
+
+}
+
 .wrapper {
 	height: 100vh;
 	width: 100wh;
