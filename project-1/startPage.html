@@ -16,7 +16,7 @@
         </div>
     </div>
 
-    <button type="button" class="nes-btn is-warning">Start Game</button>
+    <button type="button" class="nes-btn is-warning" id="start-btn">Start Game</button>
 
     <div class="pokemon">
         <a href="http://pokemondb.net/pokedex/bulbasaur"><img src="https://img.pokemondb.net/sprites/black-white/anim/normal/bulbasaur.gif" alt="Bulbasaur"></a>
@@ -24,6 +24,14 @@
         <a href="http://pokemondb.net/pokedex/charmander"><img src="https://img.pokemondb.net/sprites/black-white/anim/normal/charmander.gif" alt="Charmander"></a>
         <a href="http://pokemondb.net/pokedex/pikachu"><img src="https://img.pokemondb.net/sprites/black-white/anim/normal/pikachu.gif" alt="Pikachu"></a>
     </div>
+
+    <script>
+
+        document.querySelector("#start-btn").onclick = function () {
+            location.href = "index.html";
+        };
+
+    </script>
 
 
 
