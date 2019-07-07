@@ -25,6 +25,8 @@ let fruitNum = 0;
 let currentScore = 0;
 let timeleft = 60;
 
+// let gameSong = new Audio('music/level-one.mp3');
+
 let pokemon2 = "https://www.smogon.com/forums/proxy.php?image=http%3A%2F%2Fwww.pkparaiso.com%2Fimagenes%2Fxy%2Fsprites%2Fanimados%2Fplusle.gif&hash=770c575f28a30952ce3168e8336d76fc";
 let totodile = "https://www.smogon.com/forums/proxy.php?image=http%3A%2F%2Fwww.pkparaiso.com%2Fimagenes%2Fxy%2Fsprites%2Fanimados%2Ftotodile.gif&hash=d6f735bfa8b0f2bdc133a1c1450faa3a";
 
@@ -168,12 +170,19 @@ const countdown = () => {
 // const startGame = () => {
 // }
 
+// const stopAudio = (audio) => {
+//     audio.pause();
+//     audio.currentTime = 0;
+// }
+
+
 const stopTheGame = () => {
     clearInterval(dropThemFruits);
     clearInterval(checkThemFruits);
     clearInterval(makeThemFruits);
     clearInterval(checkTheScore);
     clearInterval(timer);
+    // stopAudio(audio);
 }
 
 // When you press the left and right keys to move the catcher
@@ -213,6 +222,8 @@ document.onkeydown = function(event) {
 
     makePokemon();
 
+    // gameSong.play();
+
     dropThemFruits = setInterval(fruitDrop,5);
 
     checkThemFruits = setInterval(removeFruit,200)
@@ -220,6 +231,10 @@ document.onkeydown = function(event) {
     checkTheScore = setInterval(checkScore,200)
 
     makeThemFruits = setInterval(makeFruit,1000);
+
+    setTimeout(() => {
+        document.getElementById('themeSong').play();
+    }, 500)
 
     timer = setInterval(countdown, 1000);
 
