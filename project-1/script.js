@@ -127,6 +127,8 @@ const checkScore = () => {
         // What to do when Pokemon catches the bomb. Minus 1 from current score.
         else if (curPosLeftFruit === curPosLeftCatcher && (curPosTopFruitNum > 700 && curPosTopFruitNum < 730) && fruitChosen3Text === "💣" ) {
 
+            boomBoom();
+
             let elem = document.querySelector("#" + fruitChosen3);
             elem.remove();
 
@@ -134,10 +136,15 @@ const checkScore = () => {
 
             document.querySelector("#score").textContent = currentScore;
 
-        // What to do when Pokemon misses catching the fruit. Update the lives left
+        // What to do when Pokemon misses catching the fruit. Minus 1 from lives left.
         } else if (curPosLeftFruit !== curPosLeftCatcher && curPosTopFruitNum > 750 && fruitChosen3Text !== "💣") {
 
             livesLeft --;
+
+            console.log(livesLeft);
+
+            let elem = document.querySelector("#" + fruitChosen3);
+            elem.remove();
 
             let parentIcon = document.querySelector(".icon-list").children;
 
@@ -172,6 +179,7 @@ const gameTimer = () => {
     timeleft-- ;
 }
 
+// When to stop the game
 const whenToStopGame = () => {
 
     document.querySelector("#time-left").textContent = timeleft + "s";
@@ -193,17 +201,28 @@ const stopTheGame = () => {
     clearInterval(timer);
     clearInterval(whenToStop);
 
+    // soundtrack.pause();
+    // soundtrack.currentTime = 0;
 }
 
+// Function for the soundtrack
+const soundtrack = () => {
+    let sound = document.getElementById("songLevelOne");
+    sound.play();
+}
+
+// Function for the soundbite when pokemon eats fruit
 const yumYum = () => {
     let sound = document.getElementById("yumyum");
     sound.play();
 }
 
-//     let song = document.getElementById("themeSong");
-// const songLevelOne = () => {
-//     song.play();
-// }
+// Function for the soundbite when pokemon eats a bomb
+const boomBoom = () => {
+    let sound = document.getElementById("boom");
+    sound.play();
+}
+
 
 // When you press the left and right keys to move the catcher
 document.onkeydown = function(event) {
@@ -237,12 +256,11 @@ document.onkeydown = function(event) {
     }
 };
 
-
 //-------- SetIntervals --------//
 
     makePokemon();
 
-    // songLevelOne();
+    soundtrack();
 
     setTimeout(() => {
 
