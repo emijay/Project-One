@@ -18,26 +18,6 @@
 
     <audio id="boom" src="music/pikachu-bomb.mp3" autostart="false"></audio>
 
-
-
-
-     <!-- Rounded dialog -->
-   <!--  <section>
-      <button type="button" class="nes-btn is-warning" id="pause-btn" onclick="document.getElementById('dialog-rounded').showModal();">
-        Pause
-      </button>
-      <dialog class="nes-dialog is-rounded" id="dialog-rounded">
-        <form method="dialog">
-          <p class="title">Game<br>Paused</p>
-          <menu class="dialog-menu">
-            <button class="nes-btn is-success">Resume</button>
-            <button class="nes-btn is-warning">Restart</button>
-            <button class="nes-btn is-error">Main Menu</button>
-          </menu>
-        </form>
-      </dialog>
-    </section> -->
-
     <section class="icon-list">
         <i class="nes-icon is-large heart"></i>
         <i class="nes-icon is-large heart"></i>
@@ -56,18 +36,35 @@
 
     </div>
 
-<!--     <p>
-        <a href="javascript:void(0)" onclick="document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'">Pause</a>
-    </p>
+    <section>
+        <dialog class="nes-dialog is-dark is-rounded" id="dialog-dark-rounded">
+            <form method="dialog" class="formModal">
+                <p class="title">Game Over!</p>
+                <p class="briefContent">You have no more lives!</p>
+                <menu class="dialog-menu">
+                    <button class="nes-btn is-warning" id="restart-btn">Restart Level</button>
+                    <button class="nes-btn is-error" id="mainMenu-btn1">Main Menu</button>
+                </menu>
+            </form>
+        </dialog>
 
-    <div id="light" class="white_content">This is the lightbox content. <a href="javascript:void(0)" onclick="document.getElementById('light').style.display='none';document.getElementById('fade').style.display='none'">Close</a>
-    </div>
+    </section>
 
-    <div id="fade" class="black_overlay"></div> -->
-
-
-
+    <section>
+        <dialog class="nes-dialog is-rounded" id="dialog-rounded">
+            <form method="dialog" class="formModal">
+                <p class="title">Level Passed!</p>
+                <p class="briefContent">You have successfully completed this level!</p>
+                <p class="briefContent">Your score is: <span id="scoreModal"></span></p>
+                <menu class="dialog-menu">
+                    <button class="nes-btn is success" id="nextLevel-btn">Next Level</button>
+                    <button class="nes-btn is-error" id="mainMenu-btn2">Main Menu</button>
+                </menu>
+            </form>
+        </dialog>
+    </section>
 
     <script src="script.js"></script>
+
 </body>
 </html>

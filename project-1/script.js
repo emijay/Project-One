@@ -21,12 +21,16 @@ let currentScore = 0;
 let timeleft = 60;
 let livesLeft = 3;
 
-let pokemon2 = "https://www.smogon.com/forums/proxy.php?image=http%3A%2F%2Fwww.pkparaiso.com%2Fimagenes%2Fxy%2Fsprites%2Fanimados%2Fplusle.gif&hash=770c575f28a30952ce3168e8336d76fc";
-let totodile = "https://www.smogon.com/forums/proxy.php?image=http%3A%2F%2Fwww.pkparaiso.com%2Fimagenes%2Fxy%2Fsprites%2Fanimados%2Ftotodile.gif&hash=d6f735bfa8b0f2bdc133a1c1450faa3a";
 let pikachu = "https://img.pokemondb.net/sprites/black-white/anim/normal/pikachu.gif";
 let pikachuBoom = "https://www.pokewiki.de/images/f/f3/Pok%C3%A9monsprite_025_Smaragd.gif"
+let squirtle = "https://img.pokemondb.net/sprites/black-white/anim/normal/squirtle.gif"
+let squirtleBoom = "https://www.pokewiki.de/images/e/e0/Pok%C3%A9monsprite_007_Smaragd.gif"
+let bulbasaur = "https://img.pokemondb.net/sprites/black-white/anim/normal/bulbasaur.gif"
+let bulbasaurBoom = "https://www.pokewiki.de/images/0/05/Pok%C3%A9monsprite_001_Smaragd.gif"
+let charmander = "https://img.pokemondb.net/sprites/black-white/anim/normal/charmander.gif"
+let charmanderBoom = "https://www.pokewiki.de/images/8/84/Pok%C3%A9monsprite_004_Smaragd.gif"
 
-
+let pokemonChosen;
 
 
 //-------- Functions --------//
@@ -147,8 +151,6 @@ const checkScore = () => {
 
             livesLeft --;
 
-            console.log(livesLeft);
-
             let elem = document.querySelector("#" + fruitChosen3);
             elem.remove();
 
@@ -190,14 +192,17 @@ const whenToStopGame = () => {
 
     document.querySelector("#time-left").textContent = timeleft + "s";
 
-    if (timeleft === 0 || livesLeft <= 0) {
+    if (timeleft === 0) {
         stopTheGame();
-        alert('Countdown over!')
+        showTimesUpModal();
+    } else if (livesLeft === 0) {
+        stopTheGame();
+        showGameOverModal();
     }
 }
 
 
-// To know when to stop the game and clear all SetIntervals
+// When the game stops, clear all SetIntervals
 const stopTheGame = () => {
 
     clearInterval(dropThemFruits);
@@ -211,11 +216,16 @@ const stopTheGame = () => {
     // soundtrack.currentTime = 0;
 }
 
-// Function for the soundtrack
-const soundtrack = () => {
-    let sound = document.getElementById("songLevelOne");
-    sound.play();
+const showGameOverModal = () => {
+    document.getElementById('dialog-dark-rounded').showModal();
 }
+
+const showTimesUpModal = () => {
+    document.getElementById('dialog-rounded').showModal();
+
+    document.getElementById('scoreModal').textContent = currentScore;
+}
+
 
 // Function for the soundbite when pokemon eats fruit
 const yumYum = () => {
@@ -232,6 +242,8 @@ const boomBoom = () => {
 
 // When you press the left and right keys to move the catcher
 document.onkeydown = function(event) {
+
+    document.getElementById("songLevelOne").play();
 
     let pokeball = document.querySelector("#catcher");
     let curPosLeft;
@@ -266,8 +278,6 @@ document.onkeydown = function(event) {
 
     makePokemon();
 
-    soundtrack();
-
     setTimeout(() => {
 
         dropThemFruits = setInterval(fruitDrop,5);
@@ -283,16 +293,28 @@ document.onkeydown = function(event) {
     },3000)
 
     setTimeout(() => {
-        makeThemFruits = setInterval(makeFruit,3000);
+        makeThemFruits = setInterval(makeFruit,2000);
 
     },1000);
 
 
 
 //-------- AddEventListeners --------//
-//
-//
-//
-//
+
+let event = document.querySelector("#restart-btn");
+event.addEventListener('click',function(){location.reload()});
+
+document.querySelector("#mainMenu-btn1").onclick = function () {
+        location.href = "startPage.html";
+};
+
+document.querySelector("#mainMenu-btn2").onclick = function () {
+        location.href = "startPage.html";
+};
+
+document.querySelector("#nextLevel-btn").onclick = function () {
+        location.href = "levelTwo.html";
+};
+
 //
 //
