@@ -14,10 +14,6 @@ body {
 
 }
 
-.logo {
-	/*text-align: center;*/
-}
-
 .logo img {
 	max-width: 600px;
 	position: absolute;
@@ -26,15 +22,9 @@ body {
 	transform: translate(-50%);
 }
 
-.pokemon {
-	position: absolute;
-	bottom: 5%;
-	left: 50%;
-	transform: translate(-50%);
-}
-
 .pokemon img {
 	width: 100px;
+	margin: 20px 0 20px 0;
 }
 
 #start-btn {
@@ -57,7 +47,7 @@ body {
 	font-size: 30px;
 }
 
-#dialog-rounded-instructions, #dialog-rounded-credits{
+#dialog-rounded-instructions, #dialog-rounded-credits, #dialog-rounded-choosePokemon {
 	text-align: center;
 	width: 600px;
 }
