@@ -11,6 +11,8 @@
 </head>
 <body>
 
+    <audio id="openingSong" src="music/opening-song.mp3" autoplay="true"></audio>
+
     <div class="wrapper">
         <div class="logo">
             <img src="images/pokemon-logo.png" alt="">
@@ -82,6 +84,13 @@
     </div>
 
     <script>
+
+    setTimeout( () => {
+
+        let song = document.getElementById("openingSong");
+        song.play();
+
+    },500)
 
 
     document.querySelector("#start-btn").onclick = function () {
