@@ -23,6 +23,8 @@ let livesLeft = 3;
 
 let pokemon2 = "https://www.smogon.com/forums/proxy.php?image=http%3A%2F%2Fwww.pkparaiso.com%2Fimagenes%2Fxy%2Fsprites%2Fanimados%2Fplusle.gif&hash=770c575f28a30952ce3168e8336d76fc";
 let totodile = "https://www.smogon.com/forums/proxy.php?image=http%3A%2F%2Fwww.pkparaiso.com%2Fimagenes%2Fxy%2Fsprites%2Fanimados%2Ftotodile.gif&hash=d6f735bfa8b0f2bdc133a1c1450faa3a";
+let pikachu = "https://img.pokemondb.net/sprites/black-white/anim/normal/pikachu.gif";
+
 
 
 
@@ -160,7 +162,7 @@ const makePokemon = () => {
     newPokemon.style.left = "800px";
     newPokemon.style.bottom = "50px";
     newPokemon.style.width = "100px";
-    newPokemon.src = totodile;
+    newPokemon.src = pikachu;
     document.querySelector("#catchArea").append(newPokemon);
 }
 
@@ -248,7 +250,7 @@ document.onkeydown = function(event) {
 
         checkThemFruits = setInterval(removeFruit,500)
 
-        checkTheScore = setInterval(checkScore,500)
+        checkTheScore = setInterval(checkScore,200)
 
         timer = setInterval(gameTimer, 1000);
 
