@@ -76,7 +76,12 @@ p {
 }
 
 
-#dialog-rounded {
+#dialog-dark-rounded, #dialog-rounded {
+	text-align: center;
+	width: 500px;
+}
+
+.formModal {
 	text-align: center;
 }
 
@@ -88,5 +93,11 @@ p {
 
 .title {
 	font-size: 30px;
-	margin-bottom: 30px;
+	font-weight: bold;
+	margin-bottom: 20px;
+}
+
+.briefContent {
+	font-size: 25px;
+	font-weight: normal;
 }
