@@ -16,17 +16,38 @@ h1 {
        1px 1px 0 #000;
 }
 
-#leftInfo {
+p {
+	font-size: 80px;
+	margin: 0;
+	padding: 0;
+}
+
+.icon-list {
 	position: absolute;
   left: 4%;
   top: 5%;
 }
 
+#leftInfo {
+	position: absolute;
+  left: 4%;
+  top: 12%;
+}
+
 #rightInfo {
 	position: absolute;
-  right: 4%;
-  top: 5%;
+  left: 4%;
+  top: 17%;
 }
+
+/*#pause-btn {
+	position: absolute;
+	left: 4%;
+	top: 23%;
+	width: 150px;
+	height: 50px;
+	font-size: 20px;
+}*/
 
 .wrapper {
 	height: 100vh;
@@ -36,24 +57,36 @@ h1 {
 #playArea {
 	height: 99%;
 	width: 100%;
-	/*background-color: lightyellow;*/
 	background-image: url(../images/level-one-background.png);
 	background-position: center; /* Center the image */
   background-repeat: no-repeat; /* Do not repeat the image */
   background-size: cover; /* Resize the background image to cover the entire container */
-
-
 }
 
-.catchArea {
+#catchArea {
 	height: 1%;
 	width: 100%;
 	background-color: #648B41;
 }
 
+/*----- Modal Box Styles ------*/
 
-p {
-	font-size: 80px;
-	margin: 0;
+.nes-btn {
+	margin-bottom: 20px;
+}
+
+
+#dialog-rounded {
+	text-align: center;
+}
+
+.dialog-menu {
+	display: flex;
+  flex-direction: column;
 	padding: 0;
+}
+
+.title {
+	font-size: 30px;
+	margin-bottom: 30px;
 }
