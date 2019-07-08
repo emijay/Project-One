@@ -3,25 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <title>Gotta Catch Em All!</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://unpkg.com/nes.css@latest/css/nes.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="css/style.css">
-    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap" rel="stylesheet">
 
 </head>
 <body>
 
-    <audio id="themeSong" src="music/level-one.mp3"></audio>
+    <audio id="themeSong" src="music/level-one.mp3" autostart="false"></audio>
+
+    <audio id="yumyum" src="music/yummy.mp3" autostart="false"></audio>
+
+
+     <!-- Rounded dialog -->
+   <!--  <section>
+      <button type="button" class="nes-btn is-warning" id="pause-btn" onclick="document.getElementById('dialog-rounded').showModal();">
+        Pause
+      </button>
+      <dialog class="nes-dialog is-rounded" id="dialog-rounded">
+        <form method="dialog">
+          <p class="title">Game<br>Paused</p>
+          <menu class="dialog-menu">
+            <button class="nes-btn is-success">Resume</button>
+            <button class="nes-btn is-warning">Restart</button>
+            <button class="nes-btn is-error">Main Menu</button>
+          </menu>
+        </form>
+      </dialog>
+    </section> -->
+
+    <section class="icon-list">
+        <i class="nes-icon is-large heart"></i>
+        <i class="nes-icon is-large heart"></i>
+        <i class="nes-icon is-large heart"></i>
+    </section>
 
     <div class="wrapper">
+
         <h1 id="leftInfo">Score: <span id="score"></span></h1>
 
         <h1 id="rightInfo">Time Left: <span id="time-left"></span></h1>
 
-        <div id="playArea">
-        </div>
+        <div id="playArea"></div>
 
-        <div class="catchArea">
-        </div>
+        <div id="catchArea"></div>
+
     </div>
+
+<!--     <p>
+        <a href="javascript:void(0)" onclick="document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'">Pause</a>
+    </p>
+
+    <div id="light" class="white_content">This is the lightbox content. <a href="javascript:void(0)" onclick="document.getElementById('light').style.display='none';document.getElementById('fade').style.display='none'">Close</a>
+    </div>
+
+    <div id="fade" class="black_overlay"></div> -->
 
 
 
