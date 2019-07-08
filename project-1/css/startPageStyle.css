@@ -21,7 +21,7 @@ body {
 .logo img {
 	max-width: 600px;
 	position: absolute;
-	top: 10%;
+	top: 8%;
 	left: 50%;
 	transform: translate(-50%);
 }
@@ -37,7 +37,17 @@ body {
 	width: 100px;
 }
 
-.nes-btn {
+#start-btn {
+	position: absolute;
+	bottom: 46%;
+	left: 50%;
+	transform: translate(-50%);
+	width: 400px;
+	height: 80px;
+	font-size: 30px;
+}
+
+#instructions {
 	position: absolute;
 	bottom: 35%;
 	left: 50%;
@@ -45,4 +55,42 @@ body {
 	width: 400px;
 	height: 80px;
 	font-size: 30px;
+}
+
+#dialog-rounded-instructions, #dialog-rounded-credits{
+	text-align: center;
+	width: 600px;
+}
+
+#credits {
+	position: absolute;
+	bottom: 24%;
+	left: 50%;
+	transform: translate(-50%);
+	width: 400px;
+	height: 80px;
+	font-size: 30px;
+}
+
+.dialog-menu {
+	padding: 0;
+	margin: 10px 0 0 0;
+}
+
+.title {
+	font-size: 22px;
+}
+
+.instruct-container {
+	display: flex;
+	flex-direction: row;
+}
+
+.emoji {
+	width: 20%;
+	font-size: 40px;
+}
+
+.writeup {
+	width: 80%;
 }
