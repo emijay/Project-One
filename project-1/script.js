@@ -24,6 +24,7 @@ let livesLeft = 3;
 let pokemon2 = "https://www.smogon.com/forums/proxy.php?image=http%3A%2F%2Fwww.pkparaiso.com%2Fimagenes%2Fxy%2Fsprites%2Fanimados%2Fplusle.gif&hash=770c575f28a30952ce3168e8336d76fc";
 let totodile = "https://www.smogon.com/forums/proxy.php?image=http%3A%2F%2Fwww.pkparaiso.com%2Fimagenes%2Fxy%2Fsprites%2Fanimados%2Ftotodile.gif&hash=d6f735bfa8b0f2bdc133a1c1450faa3a";
 let pikachu = "https://img.pokemondb.net/sprites/black-white/anim/normal/pikachu.gif";
+let pikachuBoom = "https://www.pokewiki.de/images/f/f3/Pok%C3%A9monsprite_025_Smaragd.gif"
 
 
 
@@ -116,6 +117,9 @@ const checkScore = () => {
 
             yumYum();
 
+            document.querySelector("#catcher").src = pikachu;
+
+
             let elem = document.querySelector("#" + fruitChosen3);
             elem.remove();
 
@@ -128,6 +132,8 @@ const checkScore = () => {
         else if (curPosLeftFruit === curPosLeftCatcher && (curPosTopFruitNum > 700 && curPosTopFruitNum < 730) && fruitChosen3Text === "💣" ) {
 
             boomBoom();
+
+            document.querySelector("#catcher").src = pikachuBoom;
 
             let elem = document.querySelector("#" + fruitChosen3);
             elem.remove();
