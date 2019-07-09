@@ -44,9 +44,9 @@ const fruitDrop = () => {
         let fruitChosen = fruitsInPlay[i].id;
 
         let curPosition = document.querySelector("#" + fruitChosen).style.top;
-        let curPositionNum = parseInt(curPosition.replace(/[^0-9]/g, ''))
+        let curPositionNum = parseFloat(curPosition);
 
-        let newPosition = curPositionNum + 1 + "px";
+        let newPosition = curPositionNum + 0.4 + "%";
 
         document.querySelector("#" + fruitChosen).style.top = newPosition;
     }
@@ -57,7 +57,8 @@ const makeFruit = () => {
 
     let randomNum0to5 = Math.floor(Math.random() * 6); // for the start position array
     let randNum0to5 = Math.floor(Math.random() * 6); // for the fruit array
-    let startPosition = [300,500,700,900,1100,1300];
+    // let startPosition = [300,500,700,900,1100,1300];
+    let startPosition = [20,30,40,50,60,70];
     let fruitArray = ["🍍","🍒","🍌","🍓","🍎","💣"];
     let positionFromLeft = startPosition[randomNum0to5];
     let fruit = fruitArray[randNum0to5];
@@ -67,8 +68,8 @@ const makeFruit = () => {
     newFruit.setAttribute('id', `fruit${fruitNum + 1}`);
     newFruit.textContent = fruit;
     newFruit.style.position = "absolute";
-    newFruit.style.left = `${positionFromLeft}px`;
-    newFruit.style.top = `0px`;
+    newFruit.style.left = `${positionFromLeft}%`;
+    newFruit.style.top = `0%`;
     document.querySelector("#playArea").appendChild(newFruit);
 
     fruitNum ++ ;
@@ -86,9 +87,9 @@ const removeFruit = () => {
 
         let fruitChosen2 = fruitsInPlay2[i].id;
         let curPosition2 = document.querySelector("#" + fruitChosen2).style.top
-        let curPositionNum2 = parseInt(curPosition2.replace(/[^0-9]/g, ''))
+        let curPositionNum2 = parseFloat(curPosition2);
 
-        if (curPositionNum2 > 830) {
+        if (curPositionNum2 > 80) {
             let elem = document.querySelector("#" + fruitChosen2);
             elem.remove();
         }
@@ -108,7 +109,7 @@ const checkScore = () => {
         let fruitChosen3 = fruitsInPlay3[i].id;
 
         let curPosTopFruit = document.querySelector("#" + fruitChosen3).style.top;
-        let curPosTopFruitNum = parseInt(curPosTopFruit.replace(/[^0-9]/g, ''));
+        let curPosTopFruitNum = parseFloat(curPosTopFruit);
 
         let curPosLeftFruit = document.querySelector("#" + fruitChosen3).style.left;
 
@@ -117,7 +118,7 @@ const checkScore = () => {
         let fruitChosen3Text = document.querySelector("#" + fruitChosen3).textContent;
 
         // What to do when Pokemon is able to catch the food. Plus 1 to current score.
-        if (curPosLeftFruit === curPosLeftCatcher && (curPosTopFruitNum > 700 && curPosTopFruitNum < 730) && fruitChosen3Text !== "💣" ) {
+        if (curPosLeftFruit === curPosLeftCatcher && (curPosTopFruitNum > 72 && curPosTopFruitNum < 80) && fruitChosen3Text !== "💣" ) {
 
             yumYum();
 
@@ -133,7 +134,7 @@ const checkScore = () => {
         }
 
         // What to do when Pokemon catches the bomb. Minus 1 from current score.
-        else if (curPosLeftFruit === curPosLeftCatcher && (curPosTopFruitNum > 700 && curPosTopFruitNum < 730) && fruitChosen3Text === "💣" ) {
+        else if (curPosLeftFruit === curPosLeftCatcher && (curPosTopFruitNum > 72 && curPosTopFruitNum < 80) && fruitChosen3Text === "💣" ) {
 
             boomBoom();
 
@@ -147,7 +148,7 @@ const checkScore = () => {
             document.querySelector("#score").textContent = currentScore;
 
         // What to do when Pokemon misses catching the fruit. Minus 1 from lives left.
-        } else if (curPosLeftFruit !== curPosLeftCatcher && curPosTopFruitNum > 750 && fruitChosen3Text !== "💣") {
+        } else if (curPosLeftFruit !== curPosLeftCatcher && curPosTopFruitNum > 80 && fruitChosen3Text !== "💣") {
 
             livesLeft --;
 
@@ -174,8 +175,8 @@ const makePokemon = () => {
 
     newPokemon.setAttribute('id', "catcher");
     newPokemon.style.position = "absolute";
-    newPokemon.style.left = "800px";
-    newPokemon.style.bottom = "50px";
+    newPokemon.style.left = "80%";
+    newPokemon.style.bottom = "5%";
     newPokemon.style.width = "100px";
     newPokemon.src = pikachu;
     document.querySelector("#catchArea").append(newPokemon);
@@ -249,8 +250,8 @@ document.onkeydown = function(event) {
         // When you press on the left arrow button
         curPosLeft = pokeball.style.left;
 
-        curPosLeftNum = parseInt(curPosLeft.replace(/[^0-9]/g, ''));
-        newPosLeft = curPosLeftNum - 100 + "px";
+        curPosLeftNum = parseFloat(curPosLeft);
+        newPosLeft = curPosLeftNum - 10 + "%";
 
         document.querySelector("#catcher").style.left = newPosLeft;
         break;
@@ -258,9 +259,9 @@ document.onkeydown = function(event) {
         case 39:
         // When you press on the right arrow button
         curPosLeft = pokeball.style.left;
-        curPosLeftNum = parseInt(curPosLeft.replace(/[^0-9]/g, ''));
+        curPosLeftNum = parseFloat(curPosLeft);
 
-        newPosLeft = curPosLeftNum + 100 + "px";
+        newPosLeft = curPosLeftNum + 10 + "%";
 
         document.querySelector("#catcher").style.left = newPosLeft;
         break;
@@ -273,11 +274,11 @@ document.onkeydown = function(event) {
 
     setTimeout(() => {
 
-        dropThemFruits = setInterval(fruitDrop,5);
+        dropThemFruits = setInterval(fruitDrop,15);
 
         checkThemFruits = setInterval(removeFruit,500)
 
-        checkTheScore = setInterval(checkScore,200)
+        checkTheScore = setInterval(checkScore,17)
 
         timer = setInterval(gameTimer, 1000);
 
@@ -285,10 +286,8 @@ document.onkeydown = function(event) {
 
     },3000)
 
-    setTimeout(() => {
-        makeThemFruits = setInterval(makeFruit,3000);
+    makeThemFruits = setInterval(makeFruit,4000);
 
-    },1000);
 
 
 
