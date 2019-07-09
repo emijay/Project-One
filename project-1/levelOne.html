@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Level One!</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://unpkg.com/nes.css@latest/css/nes.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/levelOneStyle.css">
+
+</head>
+<body>
+
+    <iframe src="music/level-one.mp3" allow="autoplay" id="songLevelOne" style="display:none"></iframe>
+
+    <audio id="yumyum" src="music/pikachu-nom.mp3" autostart="false"></audio>
+
+    <audio id="boom" src="music/pikachu-bomb.mp3" autostart="false"></audio>
+
+    <section class="icon-list">
+        <i class="nes-icon is-large heart"></i>
+        <i class="nes-icon is-large heart"></i>
+        <i class="nes-icon is-large heart"></i>
+    </section>
+
+    <div class="wrapper">
+
+        <h1 id="leftInfo">Score: <span id="score"></span></h1>
+
+        <h1 id="rightInfo">Time Left: <span id="time-left"></span></h1>
+
+        <div id="playArea"></div>
+
+        <div id="catchArea"></div>
+
+    </div>
+
+    <section>
+        <dialog class="nes-dialog is-dark is-rounded" id="dialog-dark-rounded">
+            <form method="dialog" class="formModal">
+                <p class="title">Game Over!</p>
+                <p class="briefContent">You have no more lives!</p>
+                <menu class="dialog-menu">
+                    <button class="nes-btn is-warning" id="restart-btn">Try Again?</button>
+                    <button class="nes-btn is-error" id="mainMenu-btn1">Main Menu</button>
+                </menu>
+            </form>
+        </dialog>
+
+    </section>
+
+    <section>
+        <dialog class="nes-dialog is-rounded" id="dialog-rounded">
+            <form method="dialog" class="formModal">
+                <p class="title">Level Passed!</p>
+                <p class="briefContent">You have successfully completed this level!</p>
+                <p class="briefContent">Your score is: <span id="scoreModal"></span></p>
+                <menu class="dialog-menu">
+                    <button class="nes-btn is-success" id="nextLevel-btn">Next Level</button>
+                    <button class="nes-btn is-warning" id="restart-btn">Restart Level</button>
+                    <button class="nes-btn is-error" id="mainMenu-btn2">Main Menu</button>
+                </menu>
+            </form>
+        </dialog>
+    </section>
+
+    <script src="scriptLevelOne.js"></script>
+
+</body>
+</html>
