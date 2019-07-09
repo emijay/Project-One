@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Gotta Catch 'Em All!</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://unpkg.com/nes.css@latest/css/nes.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/startPageStyle.css">
+</head>
+<body>
+
+    <iframe src="music/opening-song.mp3" allow="autoplay" id="openingSong" style="display:none"></iframe>
+
+    <audio id="pickBulbasaur" src="music/bulbasaur-page.mp3" autostart="false"></audio>
+    <audio id="pickSquirtle" src="music/squirtle-page.mp3" autostart="false"></audio>
+    <audio id="pickCharmander" src="music/charmander-page.mp3" autostart="false"></audio>
+    <audio id="pickPikachu" src="music/pikachu-page.mp3" autostart="false"></audio>
+
+
+    <div class="wrapper">
+        <div class="logo">
+            <img src="images/pokemon-logo.png" alt="">
+        </div>
+    </div>
+
+    <!-- Buttons for Start Game, Instructions and Credits -->
+    <button type="button" class="nes-btn is-success" id="start-btn" onclick="document.getElementById('dialog-rounded-choosePokemon').showModal();">Start Game</button>
+    <button type="button" class="nes-btn is-warning" id="instructions" onclick="document.getElementById('dialog-rounded-instructions').showModal();">Instructions
+    </button>
+    <button type="button" class="nes-btn is-primary" id="credits" onclick="document.getElementById('dialog-rounded-credits').showModal();">Credits</button>
+
+     <!-- Rounded dialog for Choosing Pokemon -->
+    <section>
+        <dialog class="nes-dialog is-rounded" id="dialog-rounded-choosePokemon">
+            <form method="dialog">
+                <p class="title"><strong>Choose Your Pokemon</strong></p>
+
+                <div class="pokemon">
+                    <p>
+                        <img src="https://img.pokemondb.net/sprites/black-white/anim/normal/bulbasaur.gif" id="bulbasaur" alt="Bulbasaur">
+                        <img src="https://img.pokemondb.net/sprites/black-white/anim/normal/squirtle.gif" id="squirtle" alt="Squirtle">
+                        <img src="https://img.pokemondb.net/sprites/black-white/anim/normal/charmander.gif" id="charmander" alt="Charmander">
+                        <img src="https://img.pokemondb.net/sprites/black-white/anim/normal/pikachu.gif" id="pikachu" alt="Pikachu">
+                    </p>
+                </div>
+
+                <menu class="dialog-menu">
+                    <button class="nes-btn is-success" id="letsPlay">Let's Play!</button>
+                    <button class="nes-btn is-error">Main Menu</button>
+                </menu>
+            </form>
+        </dialog>
+    </section>
+
+    <!-- Rounded dialog for Instructions -->
+    <section>
+        <dialog class="nes-dialog is-rounded" id="dialog-rounded-instructions">
+            <form method="dialog">
+                <p class="title"><strong>Instructions</strong></p>
+
+                <div class="instruct-container">
+                    <p class="emoji">⇦⇨</p>
+                    <p class="writeup">Use left and right arrows to move the Pokemon to catch as many fruits as you can before time runs out.</p>
+                </div>
+
+                <div class="instruct-container">
+                    <p class="emoji">💣</p>
+                    <p class="writeup">Avoid falling bombs as they will deduct a point from your score</p>
+                </div>
+
+                <div class="instruct-container">
+                    <p class="emoji">❤️</p>
+                    <p class="writeup">Missing a fruit will deduct a life</p>
+                </div>
+
+                <div class="instruct-container">
+                    <p class="emoji">⏱️</p>
+                    <p class="writeup">Game will end when timer runs out or you run out of lives!</p>
+                </div>
+
+                <menu class="dialog-menu">
+                    <button class="nes-btn is-success">Confirm</button>
+                </menu>
+            </form>
+        </dialog>
+    </section>
+
+    <!-- Rounded dialog for Credits -->
+    <section>
+        <dialog class="nes-dialog is-rounded" id="dialog-rounded-credits">
+            <form method="dialog">
+                <p class="title"><strong>Credits</strong></p>
+
+                <p><a href="https://nostalgic-css.github.io/NES.css/">NES Style CSS Framework</a></p>
+                <p><a href="https://pokemondb.net">Pokemon Database</a></p>
+                <p><a href="https://downloads.khinsider.com/game-soundtracks/album/pokemon-original-game-soundtrack">Pokemon Original Soundtrack</a></p>
+                <p><a href="https://www.101soundboards.com">Pokemon Soundboard</a></p>
+                <p><a href="https://dlpng.com">Pokemon Logo - DLPNG</a></p>
+
+                <p>Special thanks to Akira and the instructors for advice on the physics of the gameplay.</p>
+
+                <p>Shoutout to my wife and daughter for being the alpha/beta testers and providing inputs on how to improve the game.</p>
+
+
+                <menu class="dialog-menu">
+                    <button class="nes-btn is-success">Exit</button>
+                </menu>
+            </form>
+        </dialog>
+    </section>
+
+    <script src="scriptStartPage.js">
+
+    </script>
+
+
+
+</body>
+</html>

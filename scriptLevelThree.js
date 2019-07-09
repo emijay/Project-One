@@ -302,11 +302,11 @@ document.querySelector("#restart-btn2").onclick = function () {
 };
 
 document.querySelector("#mainMenu-btn1").onclick = function () {
-        location.href = "startPage.html";
+        location.href = "index.html";
 };
 
 document.querySelector("#mainMenu-btn2").onclick = function () {
-        location.href = "startPage.html";
+        location.href = "index.html";
 };
 
 //

@@ -277,7 +277,7 @@ document.onkeydown = function(event) {
 
         checkThemFruits = setInterval(removeFruit,500)
 
-        checkTheScore = setInterval(checkScore,10)
+        checkTheScore = setInterval(checkScore,8)
 
         timer = setInterval(gameTimer, 1000);
 
@@ -302,11 +302,11 @@ document.querySelector("#restart-btn2").onclick = function () {
 };
 
 document.querySelector("#mainMenu-btn1").onclick = function () {
-        location.href = "startPage.html";
+        location.href = "index.html";
 };
 
 document.querySelector("#mainMenu-btn2").onclick = function () {
-        location.href = "startPage.html";
+        location.href = "index.html";
 };
 
 document.querySelector("#nextLevel-btn").onclick = function () {
