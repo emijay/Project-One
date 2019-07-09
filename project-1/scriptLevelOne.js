@@ -57,7 +57,6 @@ const makeFruit = () => {
 
     let randomNum0to5 = Math.floor(Math.random() * 6); // for the start position array
     let randNum0to5 = Math.floor(Math.random() * 6); // for the fruit array
-    // let startPosition = [300,500,700,900,1100,1300];
     let startPosition = [20,30,40,50,60,70];
     let fruitArray = ["🍍","🍒","🍌","🍓","🍎","💣"];
     let positionFromLeft = startPosition[randomNum0to5];
@@ -278,15 +277,18 @@ document.onkeydown = function(event) {
 
         checkThemFruits = setInterval(removeFruit,500)
 
-        checkTheScore = setInterval(checkScore,17)
+        checkTheScore = setInterval(checkScore,15)
 
         timer = setInterval(gameTimer, 1000);
 
-        whenToStop = setInterval(whenToStopGame, 1000)
+        whenToStop = setInterval(whenToStopGame, 500)
 
     },3000)
 
-    makeThemFruits = setInterval(makeFruit,4000);
+    setTimeout(() => {
+        makeThemFruits = setInterval(makeFruit,3000);
+
+    },1000)
 
 
 
