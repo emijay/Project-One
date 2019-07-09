@@ -23,8 +23,16 @@ body {
 }
 
 .pokemon img {
-	width: 100px;
+	width: 120px;
+	height: 120px;
 	margin: 20px 0 20px 0;
+	padding: 10px;
+}
+
+.pokemon img:hover {
+	border: 5px solid #3F5CA4;
+	border-radius: 10px;
+
 }
 
 #start-btn {

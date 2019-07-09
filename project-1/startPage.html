@@ -13,6 +13,12 @@
 
     <iframe src="music/opening-song.mp3" allow="autoplay" id="openingSong" style="display:none"></iframe>
 
+    <audio id="pickBulbasaur" src="music/bulbasaur-page.mp3" autostart="false"></audio>
+    <audio id="pickSquirtle" src="music/squirtle-page.mp3" autostart="false"></audio>
+    <audio id="pickCharmander" src="music/charmander-page.mp3" autostart="false"></audio>
+    <audio id="pickPikachu" src="music/pikachu-page.mp3" autostart="false"></audio>
+
+
     <div class="wrapper">
         <div class="logo" onclick="document.getElementById('openingSong').play();">
             <img src="images/pokemon-logo.png" alt="">
@@ -107,14 +113,38 @@
 
     <script>
 
+    // Function for the soundbites when mouse over each pokemon
+    const bulbasaurSound = () => {
+        let sound = document.getElementById("pickBulbasaur");
+        sound.play();
+    }
+
+    const squirtleSound = () => {
+        let sound = document.getElementById("pickSquirtle");
+        sound.play();
+    }
+
+    const charmanderSound = () => {
+        let sound = document.getElementById("pickCharmander");
+        sound.play();
+    }
+
+    const pikachuSound = () => {
+        let sound = document.getElementById("pickPikachu");
+        sound.play();
+    }
+
+    // When user clicks on the "Let's Play" button
     document.querySelector("#letsPlay").onclick = function () {
         location.href = "levelOne.html";
     };
 
-        // document.querySelector("#bulbasaur").addEventListener('click', myFunction)
-        // document.querySelector("#squirtle").addEventListener('click', myFunction)
-        // document.querySelector("#charmander").addEventListener('click', myFunction)
-        // document.querySelector("#pikachu").addEventListener('click', myFunction)
+
+    // AddEventListeners for each Pokemon
+    document.querySelector("#bulbasaur").addEventListener('mouseover', bulbasaurSound);
+    document.querySelector("#squirtle").addEventListener('mouseover', squirtleSound);
+    document.querySelector("#charmander").addEventListener('mouseover', charmanderSound);
+    document.querySelector("#pikachu").addEventListener('mouseover', pikachuSound);
 
     </script>
 
