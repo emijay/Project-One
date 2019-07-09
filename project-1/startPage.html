@@ -11,7 +11,7 @@
 </head>
 <body>
 
-    <audio id="openingSong" src="music/opening-song.mp3" autoplay="false"></audio>
+    <iframe src="music/opening-song.mp3" allow="autoplay" id="openingSong" style="display:none"></iframe>
 
     <div class="wrapper">
         <div class="logo" onclick="document.getElementById('openingSong').play();">
@@ -108,7 +108,7 @@
     <script>
 
     document.querySelector("#letsPlay").onclick = function () {
-        location.href = "index.html";
+        location.href = "levelOne.html";
     };
 
         // document.querySelector("#bulbasaur").addEventListener('click', myFunction)
