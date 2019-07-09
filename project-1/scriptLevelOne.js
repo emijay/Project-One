@@ -22,13 +22,13 @@ let timeleft = 60;
 let livesLeft = 3;
 
 let pikachu = "https://img.pokemondb.net/sprites/black-white/anim/normal/pikachu.gif";
-let pikachuBoom = "https://www.pokewiki.de/images/f/f3/Pok%C3%A9monsprite_025_Smaragd.gif"
-let squirtle = "https://img.pokemondb.net/sprites/black-white/anim/normal/squirtle.gif"
-let squirtleBoom = "https://www.pokewiki.de/images/e/e0/Pok%C3%A9monsprite_007_Smaragd.gif"
-let bulbasaur = "https://img.pokemondb.net/sprites/black-white/anim/normal/bulbasaur.gif"
-let bulbasaurBoom = "https://www.pokewiki.de/images/0/05/Pok%C3%A9monsprite_001_Smaragd.gif"
-let charmander = "https://img.pokemondb.net/sprites/black-white/anim/normal/charmander.gif"
-let charmanderBoom = "https://www.pokewiki.de/images/8/84/Pok%C3%A9monsprite_004_Smaragd.gif"
+let pikachuBoom = "https://www.pokewiki.de/images/f/f3/Pok%C3%A9monsprite_025_Smaragd.gif";
+let squirtle = "https://img.pokemondb.net/sprites/black-white/anim/normal/squirtle.gif";
+let squirtleBoom = "https://www.pokewiki.de/images/e/e0/Pok%C3%A9monsprite_007_Smaragd.gif";
+let bulbasaur = "https://img.pokemondb.net/sprites/black-white/anim/normal/bulbasaur.gif";
+let bulbasaurBoom = "https://www.pokewiki.de/images/0/05/Pok%C3%A9monsprite_001_Smaragd.gif";
+let charmander = "https://img.pokemondb.net/sprites/black-white/anim/normal/charmander.gif";
+let charmanderBoom = "https://www.pokewiki.de/images/8/84/Pok%C3%A9monsprite_004_Smaragd.gif";
 
 let pokemonChosen;
 
@@ -294,8 +294,13 @@ document.onkeydown = function(event) {
 
 //-------- AddEventListeners --------//
 
-let event = document.querySelector("#restart-btn");
-event.addEventListener('click',function(){location.reload()});
+document.querySelector("#restart-btn1").onclick = function () {
+        location.href = "levelOne.html";
+};
+
+document.querySelector("#restart-btn2").onclick = function () {
+        location.href = "levelOne.html";
+};
 
 document.querySelector("#mainMenu-btn1").onclick = function () {
         location.href = "startPage.html";

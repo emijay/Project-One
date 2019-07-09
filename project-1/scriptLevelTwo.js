@@ -294,8 +294,13 @@ document.onkeydown = function(event) {
 
 //-------- AddEventListeners --------//
 
-let event = document.querySelector("#restart-btn");
-event.addEventListener('click',function(){location.reload()});
+document.querySelector("#restart-btn1").onclick = function () {
+        location.href = "levelTwo.html";
+};
+
+document.querySelector("#restart-btn2").onclick = function () {
+        location.href = "levelTwo.html";
+};
 
 document.querySelector("#mainMenu-btn1").onclick = function () {
         location.href = "startPage.html";
