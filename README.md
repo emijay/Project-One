@@ -13,5 +13,15 @@ How do you play the game?
 Feel free to fork and I welcome any feedback on how to improve the game!
 
 
+What are the technologies used?
+- Lots of positioning (from top and from left)
+- Arrays checking the position of each fruit
+- setIntervals for each function (adding fruits to the game, removing missed fruits, how to check if the player scored) and setTimeouts
+
+Unsolved problems?
+- How to add more characters to the game
+- Adding more challenges to the game
+
+
 
 
